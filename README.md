@@ -3,7 +3,7 @@ This php file takes an Object ID, looks up the appropriate IIIF manifest (json),
 
 Ex: 
 
-http://domain.com/getThumbLarge.php?objectid=10
+http://<i></i>domain.com<i></i>/getThumb.php?objectid=10
 
 ...returns an image for the object with id=10
 
