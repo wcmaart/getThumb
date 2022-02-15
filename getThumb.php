@@ -3,7 +3,7 @@ $myID =  $_GET["objectid"];
 //echo $myID;
 
 //change $jsonurl to match domain
-$jsonurl = "http://egallery.williams.edu/apis/iiif/presentation/v2/objects-" . $myID . "/manifest";
+$jsonurl = "http://egallery.williams.edu/apis/iiif/presentation/v2/1-objects-" . $myID . "/manifest";
 
 $json = file_get_contents($jsonurl);
 $decoded = json_decode($json,true);
