@@ -16,6 +16,8 @@ if (strpos($json,"thumbnail")){
 	}
 else{
 	echo "no thumbnail found for this object. 2";
+	echo var_dump($decoded["thumbnail"]["@id"]);
+
 	}
 ?>
 
