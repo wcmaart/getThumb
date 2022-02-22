@@ -12,7 +12,7 @@ curl_setopt_array($curl,[
     CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
     CURLOPT_USERAGENT => 'egallery API in CURL'
 ]);
-//echo 'http://egallery.wms.edu/objects/' . $obID . '/json?key=' . $WCMAKey;
+
 $response = curl_exec($curl);
 
 //echo ($response);
@@ -33,7 +33,8 @@ if (strpos($response,"primaryMedia")){
  }
 else{
     echo "no primary media found";
+    curl_close();
 }
  
-    curl_close();
+    
 ?>
