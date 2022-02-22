@@ -9,7 +9,7 @@ echo $WCMAKey;
 $curl = curl_init();
 curl_setopt_array($curl,[
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . 'json?key=' . $WCMAKey,
+    CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
     CURLOPT_USERAGENT => 'egallery API in CURL'
 ]);
 echo 'http://egallery.williams.edu/objects/' . $obID . 'json?key=' . $WCMAKey;
