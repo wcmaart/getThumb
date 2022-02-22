@@ -1,5 +1,5 @@
 <?php
-$obID = $_GET["id"];
+$obID = $_GET["objectid"];
 $WCMAKey = getenv('WCMA_API_KEY');
 
 //echo $obID;
