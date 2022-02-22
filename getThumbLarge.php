@@ -26,7 +26,7 @@ $fullURL = substr($response,$startURL,$endURL - $startURL);
 
 if (strpos($response,"primaryMedia")){
     
-    $urlParm = 'Location: ' . $fullURL; 
+    $urlParm = 'Location: ' . $fullURL . '/full'; 
     header($urlParm);
     curl_close();
     exit;
