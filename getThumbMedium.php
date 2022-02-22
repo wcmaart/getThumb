@@ -3,12 +3,16 @@ $obID = $_GET["id"];
 $WCMAKey = getenv('WCMA_API_KEY');
 
 //echo $obID;
+echo $WCMAKey;
+
+
 $curl = curl_init();
 curl_setopt_array($curl,[
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://egallery.wms.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
+    CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
     CURLOPT_USERAGENT => 'egallery API in CURL'
 ]);
+//echo 'http://egallery.wms.edu/objects/' . $obID . '/json?key=' . $WCMAKey;
 $response = curl_exec($curl);
 
 //echo ($response);
@@ -18,14 +22,18 @@ $endURL = strpos($response,'/full',$startURL);
 //echo $endURL;
 $fullURL = substr($response,$startURL,$endURL - $startURL);
 //echo $fullURL;
+
+
 if (strpos($response,"primaryMedia")){
     
     $urlParm = 'Location: ' . $fullURL . '/thumbnail'; //bigger than postagestamp size
     header($urlParm);
+    curl_close();
     exit;
  }
 else{
     echo "no primary media found";
 }
+ 
     curl_close();
 ?>
