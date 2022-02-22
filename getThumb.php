@@ -26,7 +26,7 @@ $fullURL = substr($response,$startURL,$endURL - $startURL);
 
 if (strpos($response,"primaryMedia")){
     
-    $urlParm = 'Location: ' . $fullURL . '/postagestamp'; //bigger than postagestamp size
+    $urlParm = 'Location: ' . $fullURL . '/postagestamp';
     header($urlParm);
     curl_close();
     exit;
