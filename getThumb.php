@@ -9,7 +9,7 @@ $WCMAKey = getenv('WCMA_API_KEY');
 $curl = curl_init();
 curl_setopt_array($curl,[
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
+    CURLOPT_URL => 'https://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
     CURLOPT_USERAGENT => 'egallery API in CURL'
 ]);
 
