@@ -3,7 +3,7 @@ $myID =  $_GET["objectid"];
 
 //change $jsonurl to match domain
 $jsonurl = "https://rs.williams.edu/iiif/" . $myID . "/manifest";
-echo $jsonurl;
+//echo $jsonurl;
 
 $json = file_get_contents($jsonurl);
 $decoded = json_decode($json,true);
