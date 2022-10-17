@@ -16,7 +16,7 @@ if (strpos($json,"thumbnail")){
 	exit;	
 	}
 else{
-	echo "no thumbnail found for this object. 2";
+	echo "no thumbnail found for this object";
 	}
 	
 ?>
