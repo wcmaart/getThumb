@@ -1,13 +1,13 @@
 <?php
 $myID =  $_GET["objectid"];
+echo $myID;
 
 //change $jsonurl to match domain
 $jsonurl = "https://rs.williams.edu/iiif/" . $myID . "/manifest";
-//echo $jsonurl;
+echo $jsonurl;
 
 $json = file_get_contents($jsonurl);
 $decoded = json_decode($json,true);
-
 
 if (strpos($json,"thumbnail")){
 	//var_dump($decoded["thumbnail"]["@id"]);
@@ -16,7 +16,8 @@ if (strpos($json,"thumbnail")){
 	exit;	
 	}
 else{
-	echo "no thumbnail found for this object";
+	echo "no thumbnail found for this object. 2";
 	}
 	
 ?>
+
