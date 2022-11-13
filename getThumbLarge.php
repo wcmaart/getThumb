@@ -1,40 +1,21 @@
 <?php
-$obID = $_GET["objectid"];
-$WCMAKey = getenv('WCMA_API_KEY');
+//This is a good sized image even though it says thumbnail
+$myID =  $_GET["objectid"];
+echo $myID;
 
-//echo $obID;
+//change $jsonurl to match domain
+$jsonurl = "https://rs.williams.edu/iiif/" . $myID . "/manifest";
+$json = file_get_contents($jsonurl);
+$decoded = json_decode($json,true);
 
+if (strpos($json,"thumbnail")){
+	$urlParm = 'Location: ' . $decoded["thumbnail"]["@id"];
 
-
-$curl = curl_init();
-curl_setopt_array($curl,[
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://egallery.williams.edu/objects/' . $obID . '/json?key=' . $WCMAKey,
-    CURLOPT_USERAGENT => 'egallery API in CURL'
-]);
-
-$response = curl_exec($curl);
-
-//echo ($response);
-$startURL = strpos($response,'http://egallery');
-//echo $startURL;
-$endURL = strpos($response,'/full',$startURL);
-//echo $endURL;
-$fullURL = substr($response,$startURL,$endURL - $startURL);
-//echo $fullURL;
-
-
-if (strpos($response,"primaryMedia")){
-    
-    $urlParm = 'Location: ' . $fullURL . '/full'; 
-    header($urlParm);
-    curl_close();
-    exit;
- }
+	header($urlParm);
+	exit;	
+	}
 else{
-    echo "no primary media found";
-    curl_close();
-}
- 
-    
+	echo "no thumbnail found for this object. 2";
+	}
+	
 ?>
